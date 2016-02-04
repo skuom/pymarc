@@ -304,7 +304,7 @@ class Record(Iterator):
                 for subfield in subs[1:]:
                     if len(subfield) == 0:
                         continue
-                    code = subfield[0:1].decode('ascii')
+                    code = subfield[0:1]
                     data = subfield[1:]
 
                     if to_unicode:
