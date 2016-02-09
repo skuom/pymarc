@@ -28,7 +28,12 @@ except ImportError:
 
 isbn_regex = re.compile(r'([0-9\-xX]+)')
 
-@six.python_2_unicode_compatible
+def empty_dec(dec):
+    return dec
+
+py2_unicode_compat = empty_dec if six.PY3 else six.python_2_unicode_compatible
+
+@py2_unicode_compat
 class Record(Iterator):
     """
     A class for representing a MARC record. Each Record object is made up of
